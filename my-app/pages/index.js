@@ -176,10 +176,10 @@ export default function Home() {
     const web3Provider = new providers.Web3Provider(provider);
 
     const { chainId } = await web3Provider.getNetwork();
-    if(chainId !== 4){
+    if(chainId !== 5){
       console.log(chainId);
-      window.alert("Change the network to Rinkeby");
-      throw new Error("Change network to Rinkeby");
+      window.alert("Change the network to Goerli");
+      throw new Error("Change network to Goerli");
     }
     if(needSigner){
       const signer = web3Provider.getSigner();
@@ -191,7 +191,7 @@ export default function Home() {
   useEffect(()=>{
     if(!walletConnected){
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
+        network: "goerli",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -279,12 +279,12 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
+          <h1 className={styles.title}>Welcome to Crypto Pirates World</h1>
           <div className={styles.description}>
-            Its an NFT collection for developers in Crypto.
+            Its an NFT collection for pirates in Crypto.
           </div>
           <div className={styles.description}>
-            {tokenIdsMinted}/20 have been minted
+            {tokenIdsMinted}/20 NFTs have been minted
           </div>
           {renderButton()}
         </div>
@@ -293,7 +293,7 @@ export default function Home() {
         </div>
       </div>
       <footer>
-        Made with &#10084; by Crypto Devs
+        Made with &#10084; by pv2k
       </footer>
     </div>
   );
